@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			input[type=range] {
+				-webkit-appearance: none;
+			    width: 423px;
+				display: inline-block;
+				background: -webkit-linear-gradient(#61bd12, #ddd) no-repeat,#ddd ;
+				background-size: 0% 100%;/*设置左右宽度比例*/
+			    border-radius: 10px; /*这个属性设置使填充进度条时的图形为圆角*/
+			}
+			input[type=range]::-webkit-slider-thumb {
+			   -webkit-appearance: none;
+				 height: 25px;
+				width: 25px;
+				margin-top: -5px; /*使滑块超出轨道部分的偏移量相等*/
+				background: #ffffff;
+				border-radius: 50%; /*外观设置为圆形*/
+				border: solid 0.125em rgba(205, 224, 230, 0.5); /*设置边框*/
+				box-shadow: 0 .125em .125em #3b4547; /*添加底部阴影*/
+			}
+			input[type=range]::-webkit-slider-runnable-track{
+				height: 15px;
+				border-radius: 10px;
+				 box-shadow: 0 1px 1px #def3f8, inset 0 .125em .125em #0d1112; /*轨道内置阴影效果*/
+			}
+			input[type=range]:focus{
+				outline: none;
+			}
+			.button{
+				border: none;
+				outline: none;
+				color: #A8A8A8;
+				background: none;
+				font-size: 1em;
+				margin: .6em 0;
+				-webkit-appearance: none;
+			}
+			.button:hover{
+				color:#2DCB74;
+				transition: .5s all;
+				-webkit-transition: .5s all;
+				-moz-transition: .5s all;
+				-o-transition: .5s all;
+				-ms-transition: .5s all;
+			}
+			table{
+				text-align: center;
+			}
+			td{
+				width: 280px;
+			}
+			#list{
+				border: 0; background: transparent;
+				 appearance:none;
+				-moz-appearance:none; /* Firefox */
+				-webkit-appearance:none; /* Safari 和 Chrome */
+				 overflow-y: auto;
+				 outline: none;
+			}
+		</style>
+		<script src="js/my.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var musicArray=new Array(),musicIndex=0,lyric,musicCount=0,playFlag=1,fl=true;
+			function loadMusic(){
+				var musicXml=getXmlDoc("src/music.xml");
+				var musics=musicXml.getElementsByTagName("name");
+				for(var i=0;i<musics.length;i++){
+					musicArray.push(musics[i].childNodes[0].nodeValue);
+				}
+				musicCount=musicArray.length;
+				var audio=document.getElementById("audio");
+				audio.src="src/"+musicArray[musicIndex]+".mp3";
+				showMassage();
+				var musiclist=document.getElementById("list");
+				// audio.setAttribute("src","src/"+musicArray[musicIndex]+".mp3");
+				for(var i=0;i<musicArray.length;i++){
+					musiclist.options[i]=new Option(musicArray[i]+".mp3");
+				}
+				musiclist.selectedIndex=musicIndex;
+				audio.addEventListener("ended",nextMusic,true);
+				audio.addEventListener("timeupdate",function(){updataTime();},true);
+				audio.addEventListener("durationchange",function(){updataTime();},true);
+			}
+			function getFormatTime2(time){
+				var m=parseInt(time%3600/60),
+					s=parseInt(time%60);
+				m=m<10?"0"+m:m;
+				s=s<10?"0"+s:s;
+				return m+":"+s;
+			}
+			function MusicLrc(){
+				var lrc=getTextDoc("src/"+musicArray[musicIndex]+".lrc");
+				lyric=parseLyric(lrc);
+				
+			}
+			function updataTime(){
+				var audio=document.getElementById("audio");
+				var lyricContainer = document.getElementById('lyricContainer');
+				var ct=audio.currentTime;
+				var dt=audio.duration;
+				var time_text=document.getElementById("time");
+				var range=document.getElementById("rag2");
+				if(fl){
+					range.value=ct/dt*100;
+					time_text.innerHTML=getFormatTime2(ct)+"/"+getFormatTime2(dt);
+					document.querySelector("#rag2").style.cssText="background-size: "+ct/dt*100+"% 100%;";
+				}
+				MusicLrc();
+				var msgs=[];
+				 for (var i = 0, l = lyric.length; i < l; i++) {
+				        if (ct /*当前播放的时间*/ > lyric[i][0]) {
+				            //显示到页面
+							if(msgs.length>=5){
+							    msgs.pop();
+							}
+							msgs.unshift(lyric[i][1]);
+				            lyricContainer.innerHTML=msgs.join("<br/>");
+				        }
+				    }
+			}
+			function showMassage(){
+				var curmusic=document.getElementById("cur_music");
+				var musicname=document.getElementById("music_name");
+				curmusic.innerHTML=(musicIndex+1)+"/"+musicCount;
+				musicname.innerHTML=musicArray[musicIndex]+".mp3";
+				
+			}
+			function playMusic(){
+				var audio=document.getElementById("audio");
+				var btn=document.getElementById("con2");
+				if(playFlag){
+					audio.pause();
+					btn.innerHTML="播放";
+					playFlag=0;
+				}else{
+					audio.play();
+					btn.innerHTML="暂停";
+					playFlag=1;
+				}
+			}
+			function nextMusic(){
+				var audio=document.getElementById("audio");
+				var musiclist=document.getElementById("list");
+				var btn=document.getElementById("con2");
+				var playStyle=document.getElementsByName("playStyle");
+				if(playStyle[0].checked){
+					musicIndex++;
+				}else if(playStyle[1].checked){
+					if(audio.currentTime!=audio.duration){
+						musicIndex++;
+					}
+				}else if(playStyle[2].checked){
+					musicIndex=Math.floor(Math.random()*musicCount);
+				}
+				if(musicIndex>=musicCount){
+					musicIndex=0;
+				}
+				musiclist.selectedIndex=musicIndex;
+				audio.src="src/"+musicArray[musicIndex]+".mp3";
+				showMassage();
+				if(playFlag==0){
+					btn.innerHTML="暂停";
+					playFlag=1;
+				}
+			}
+			function lastMusic(){
+				var audio=document.getElementById("audio");
+				var musiclist=document.getElementById("list");
+				var btn=document.getElementById("con2");
+				var playStyle=document.getElementsByName("playStyle");
+				if(playStyle[0].checked){
+					musicIndex--;
+				}else if(playStyle[1].checked){
+					if(audio.currentTime!=audio.duration){
+						musicIndex--;
+					}
+				}else if(playStyle[2].checked){
+					musicIndex=Math.floor(Math.random()*musicCount);
+				}
+				if(musicIndex<=0){
+					musicIndex=musicCount-1;
+				}
+				musiclist.selectedIndex=musicIndex;
+				audio.src="src/"+musicArray[musicIndex]+".mp3";
+				showMassage();
+				if(playFlag==0){
+					btn.innerHTML="暂停";
+					playFlag=1;
+				}
+			}
+			function clickMusic(){
+				var audio=document.getElementById("audio");
+				var musiclist=document.getElementById("list");
+				var btn=document.getElementById("con2");
+				musicIndex=musiclist.selectedIndex;
+				musiclist.selectedIndex=musicIndex;
+				audio.src="src/"+musicArray[musicIndex]+".mp3";
+				showMassage();
+				if(playFlag==0){
+					btn.innerHTML="暂停";
+					playFlag=1;
+				}
+			}
+		</script>
+	</head>
+	<body onload="loadMusic()">
+		<table width="670px">
+			<tr>
+				<td colspan="3">
+					<audio src="" id="audio" autoplay="autoplay" >
+						当前浏览器不支持audio
+					</audio>
+				</td>
+			</tr>
+			<tr>
+				<td align="left">正在播放：<span id="cur_music" >0/0</span></td>
+				<td colspan="2"><span id="music_name">音乐名字</span></td>
+			</tr>
+			<tr height="150px">
+				<td colspan="3">
+					<div id="lyricContainer"></div>
+				</td>
+			</tr>
+		<!-- 	<tr>
+				<td><button type="button" onclick="lastMusic()">上一首</button></td>
+				<td><button type="button" id="btn" onclick="playMusic()">暂停</button></td>
+				<td><button type="button" onclick="nextMusic()">下一首</button></td>
+			</tr> -->
+			<tr>
+				<td><input type="radio" name="playStyle" checked="checked"/>列表循环</td>
+				<td>
+					<button type="button" class="button" onclick="lastMusic()">上一首</button>
+					<input type="radio" name="playStyle"/>单曲循环
+					<button type="button" class="button" onclick="nextMusic()">下一首</button>
+				</td>
+				<td><input type="radio" name="playStyle"/>随机播放</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					播放进度：<input id="rag2" type="range" min="0" max="100" value="0"/>
+					<span id="time"></span>
+					<button id="con2" class="button" onclick="playMusic()">暂停</button>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3">
+					<select id="list" size="12" onchange="clickMusic()" style="width: 450px;"></select>
+				</td>
+			</tr>
+		</table>
+		<script type="text/javascript">
+			var range=document.getElementById("rag2");
+			range.onchange=function(){
+				var audio=document.getElementById("audio");
+				audio.currentTime=audio.duration*(range.value/range.max);
+				fl=true;
+				
+			}
+			range.oninput=function (event){
+				var val=event.target.value;
+				time.innerHTML=getFormatTime2(audio.duration*(val/range.max))+"/"+getFormatTime2(audio.duration);
+				document.querySelector("#rag").style.cssText="background-size: "+val+"% 100%;";
+			}
+			range.onmouseover=function(envent){
+				fl=false;
+			}
+			range.onmouseout=function(){
+				fl=true;
+			}
+		</script>
+	</body>
+</html>

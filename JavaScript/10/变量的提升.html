@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			/*
+				变量的声明提前
+					使用var会在执行之前被声明不赋值
+				函数的声明提前
+					var声明不会提前，没赋值
+			*/
+			var a=123;
+			console.log(a);
+			fun();
+			
+			function fun(){
+				console.log("fun");
+			}
+			var fun2=function(){
+				console.log("fun2");
+			}
+			fun2();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

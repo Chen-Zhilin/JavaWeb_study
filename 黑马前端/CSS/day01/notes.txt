@@ -1,0 +1,40 @@
+1.html的局限性
+	.html满足不了设计者的需求
+	.操作html属性不方便
+	.html里面添加样式带来的是无尽的臃肿和繁琐
+2.css网页的美容师
+	目的和作用用来对页面进行美化
+3.css的书写格式
+	1.行内样式表
+		<h1 style="color: pink;">我在这里等你</h1>
+	2.内部样式表
+		<style type="text/css">
+			h1{
+				color: green;
+			}
+			h2{
+				color: purple;
+			}
+		</style>
+	3.外部样式表
+		css文件+<link rel="stylesheet" type="text/css" href="css/index.css"/>
+4.css的选择器
+	作用：找到特定的标签
+	基础选择器：
+		1.标签选择器：直接写标签名
+		2.类选择器：
+		3.id选择器：
+5.font字体
+	1.一般使用px单位
+	2.浏览器默认字体不一样。
+	font-family,font-size,font-weight
+	700和bold是等价的加粗
+	font-style:italic/*倾斜*/
+	综合性写法:
+		font: font-style font-weight font-size/line-height font-family
+		其中font-size和font-family不能省略
+		line-height行高
+		text-align水平对齐
+		text-indent首行缩进
+		text-decoration文本修饰（上划线和下划线，删除线）
+		

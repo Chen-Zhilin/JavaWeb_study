@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+	<body>
+		<section>
+			<div class="container">
+				<div class="user singinBx">
+					<div class="imgBx"><img src="src/img1.jpg" width="390px"/></div>
+					<div class="formBx">
+						<form action="" method="">
+							<h2>登录</h2>
+							<select name="">
+								<option value="用户">用户</option>
+								<option value="管理">管理</option>
+							</select>
+							<input type="text" name="" placeholder="账号"/>
+							<input type="password" name="" placeholder="密码"/>
+							<input type="submit" name=""  value="登录" />
+							<p class="signup">没有账号?<a href="#" onclick="toggleForm()">注册</a></p>
+						</form>
+					</div>
+				</div>
+				<div class="user singupBx">
+					<div class="formBx">
+						<form action="" method="">
+							<h2>注册</h2>
+							<input type="text" name="" placeholder="账号"/>
+							<input type="email" name="" placeholder="邮箱地址"/>
+							<input type="password" name="" placeholder="设置密码"/>
+							<input type="password" name="" placeholder="确认密码"/>
+							<input type="submit" name=""  value="注册" />
+							<p class="signup">已有账号?<a href="#" onclick="toggleForm()">登录</a></p>
+						</form>
+					</div>
+					<div class="imgBx"><img src="src/img2.jpg" width="390px"/></div>
+				</div>
+			</div>
+		</section>
+		<script type="text/javascript">
+			function toggleForm(){
+				var container=document.querySelector('.container');
+				container.classList.toggle('active');
+			}
+		</script>
+	</body>
+</html>

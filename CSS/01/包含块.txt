@@ -1,0 +1,3 @@
+初始包含块是一个视窗大小的矩形。
+position值为relative或static,包含块由最近的块级元素边界构成。
+position值为absolute，包含块为position不是static最近的祖先元素，如果没有祖先元素则为初始包含块。

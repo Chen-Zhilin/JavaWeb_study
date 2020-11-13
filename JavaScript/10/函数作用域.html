@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			/**
+			 * 函数作用域
+			 * -调用函数时创建函数作用域，调用完就销毁
+			 * -每调用一次就创建一个新的函数作用域，他们是独立的。
+			 * -在函数作用域中可以访问全局变量
+			 * -全局作用域中无法访问函数作用域的变量
+			 * -当函数作用域中操作一个变量时，它会先在自身作用域中查找再在上一级作用域中查找。
+			 * -在函数中访问全局变量时可以使用window对象
+			 * -在函数作用域中也有var的声明提升
+			 * -在函数作用域中也有函数的声明提升
+			 * -在函数中没有var关键字声明会变成全局变量
+			 * 
+			 */
+			var a=10;
+			function fun(){
+				var a=20;
+				console.log(a);
+				function fun2(){
+					var a=30;
+					console.log(a);
+				}
+			}
+			fun();
+			console.log(a);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

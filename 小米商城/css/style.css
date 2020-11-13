@@ -1,0 +1,351 @@
+/* 公共样式 */
+*{
+	margin: 0;
+	padding: 0;
+}
+a{
+	text-decoration: none;
+	color: #a2a2a2;
+}
+.container{
+	width: 1226px;
+	height: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 12px;
+}
+
+/* 顶部代码 */
+.page-top{
+	height: 40px;
+	background-color: #323232;
+}
+.page-top .top-lt{
+	color:#a2a2a2;
+	line-height: 40px;
+	float: left;
+}
+.page-top .top-lt span{
+	color: #3f3f3f;
+	padding: 0 3px;
+}
+.page-top .top-lt a:hover,.page-top .top-gt .login a:hover{
+	color: #fff;
+}
+.page-top .top-lt .download{
+	position: relative;
+}
+.page-top .top-lt .down-box{
+	width: 126px;
+	background-color: #fff;
+	position: absolute;
+	left: 50%;
+	top: 30px;
+	margin-left: -63px;
+	padding-top: 20px;
+	box-shadow: rgb(170,170,170) 0px 1px 5px;
+	text-align: center;
+	display: none;
+}
+.page-top .top-lt .down-box img{
+	width: 88px;
+	height: 88px;
+	display: block;
+	margin: 0 auto;
+}
+.page-top .top-lt .download i{
+	font-style: normal;
+	color: #323232;
+}
+.page-top .top-lt .download:hover .down-box{
+	display: block;
+}
+.page-top .top-lt .download:hover i{
+	color: #323232;
+}
+.page-top .top-lt .down-box::after{
+	width: 0px;
+	height: 0px;
+	border-width: 8px;
+	border-style: solid;
+	border-color: transparent transparent white transparent;
+	position: absolute;
+	content: ' ';
+	left: 50%;
+	top: -16px;
+	margin-left: -8px;
+}
+.page-top .top-gt{
+	float: right;
+}
+.page-top .top-gt .login{
+	color:#a2a2a2;
+	line-height: 38px;
+	float: right;
+	margin-right: 20px;
+}
+.page-top .top-gt .login span{
+	color: #3f3f3f;
+	padding: 0 3px;
+}
+.page-top .userinfo{
+	float: right;
+	margin-right: 20px;
+}
+.page-top .userinfo .user .link{
+	line-height: 40px;
+	color: #A2A2A2;
+}
+.page-top .userinfo .user{
+	width: 120px;
+	display: inline-block;
+	position: relative;
+}
+.page-top .userinfo .user .tit{
+	line-height: 40px;
+	text-align: center;
+	display: block;
+	color: #A2A2A2;
+	position: relative;
+	z-index: 5;
+}
+.page-top .userinfo span{
+	color: #3f3f3f;
+	padding: 0 3px;
+}
+.page-top .userinfo .user ul{
+	position: absolute;
+	left: 0;
+	top: 40px;
+	width: 120px;
+	padding: 10px 0;
+	box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+	display: none;
+}
+.page-top .userinfo .user li{
+	line-height: 30px;
+	list-style: none;
+	text-align: center;
+	font-size: 15px;
+}
+.page-top .userinfo .user li a{
+	color: black;
+}
+.page-top .userinfo .user li:hover{
+	background-color: #f5f5f5;
+}
+.page-top .userinfo .user li:hover a{
+	color: #ff6700;
+}
+.page-top .userinfo .user:hover{
+	background-color: #fff;
+}
+.page-top .userinfo .user:hover .tit{
+	color: #FF6700;
+}
+.page-top .userinfo .user:hover ul{
+	display: block;
+}
+.page-top .car-box{
+	
+	float: right;
+	position: relative;
+}
+.page-top .car-box .tit{
+	display: block;
+	width: 118px;
+	height: 40px;
+	background-color: #424242;
+	text-align: center;
+	line-height: 40px;
+	color: #A2A2A2;
+	position: relative;
+	z-index: 1000;
+}
+.page-top .car-box .pop{
+	width: 316px;
+	position: absolute;
+	top: 40px;
+	right: 0;
+	box-shadow: 0 2px 10px rgba(0,0,0,.15);
+	display: none;
+}
+.page-top .car-box .pop .no-good{
+	text-align: center;
+	font-size: 13px;
+	padding: 40px 0;
+}
+.page-top .pop .list{
+	/* border: 1px solid red; */
+	padding: 0 20px;
+	margin-top: 15px;
+	max-height: 450px;
+	overflow-y: scroll;
+}
+.page-top .pop .list li{
+	border-bottom: 1px solid #e0e0e0;
+	padding: 10px 0;
+	overflow: hidden;
+}
+.page-top .pop .list .pic{
+	float: left;
+}
+.page-top .pop .list li:last-child,
+.page-top .pop .list li.last{
+	border: none;
+}
+.page-top .pop .list img{
+	width: 70px;
+	height: 70px;
+}
+.page-top .pop .list .txt{
+	width: 120px;
+	float: left;
+	line-height: 60px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.page-top .pop .list .txt:hover{
+	color: #FF6700;
+}
+.page-top .pop .list .num{
+	float: right;
+	text-align: right;
+}
+.page-top .pop .list .num h4{
+	margin-top: 12px;
+	font-weight: normal;
+	font-size: 12px;
+	margin-bottom: 10px;
+}
+.page-top .pop .list .num i{
+	font-style: normal;
+	cursor: pointer;
+	color: #aaa;
+}
+.page-top .pop .list .num i:hover{
+	color: #333;
+}
+.page-top .pop .total{
+	background-color: #fafafa;
+	padding: 15px 10px;
+	overflow: hidden;
+}
+.page-top .pop .total .price{
+	float: left;
+}
+.page-top .pop .total .price p{
+	color: #7e7e7e;
+}
+.page-top .pop .total .price h3{
+	font-size: 20px;
+	color: #FF6700;
+	font-weight: normal;
+	margin-top: 5px;
+}
+.page-top .pop .total .btn{
+	width: 132px;
+	height: 40px;
+	background-color: #FF6700;
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+	float: right;
+	display: block;
+}
+
+
+
+.page-top .car-box:hover .tit{
+	background-color: #fff;
+	color: #FF6700;
+}
+.page-top .car-box:hover .pop{
+	display: block;
+}
+/* 导航样式 */
+.page-nav{
+	position: relative;
+	height: 96px;
+}
+.page-nav .logo{
+	display: block;
+	float: left;
+	width: 54px;
+	height: 54px;
+	margin-top: 21px;
+	background:  #FF6700 url(../img/mi-logo.png) center center no-repeat;
+	margin-right: 45px;
+}
+.page-nav .nav .nav_item{
+	margin-left: 20px;
+	float: left;
+	padding-top: 34px;
+}
+.page-nav .nav .nav_item .tit{
+	font-size: 16px;
+	color: #666;
+}
+.page-nav .nav .nav_item .tit:hover{
+	color: #FF6700;
+}
+.page-nav .nav_item .pop{
+	position: absolute;
+	width: 100%;
+	height: 230px;
+	/* background-color: red; */
+	left: 0;
+	top: 96px;
+	background-color: #FFFFFF;
+	box-shadow: 0 3px 4px rgba(0,0,0,0.10);
+	border-top: 1px solid #E0E0E0;
+}
+.page-nav .down-ul{
+	margin: 0 auto;
+	list-style: none;
+}
+.page-nav .down-li{
+	width: 241px;
+	float: left;
+	padding-top: 30px;
+	text-align: center;
+	position: relative;
+}
+.page-nav .down-li .pic img{
+	width: 160px;
+	height: 110px;
+}
+.page-nav .down-li .name{
+	font-weight: normal;
+	font-size: 13px;
+	margin-top: 20px;
+}
+.page-nav .down-li .price{
+	color: #FF6700;
+	margin-top: 5px;
+} 
+.page-nav .down-li .tags{
+	width: 64px;
+	height: 20px;
+	border: 1px solid #FF6700;
+	text-align: center;
+	line-height: 20px;
+	position: absolute;
+	left: 50%;
+	margin-left: -32px;
+	z-index: 20;
+	top: -1px;
+	color: #FF6700;
+}
+.page-nav .down-li i{
+	background-color: #e0e0e0;
+	width: 1px;
+	height: 100px;
+	position: absolute;
+	right: 0;
+	top: 36px;
+}
+#page-all-nav{
+	visibility: hidden;
+}

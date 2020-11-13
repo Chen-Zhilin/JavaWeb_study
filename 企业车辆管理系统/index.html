@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>企业车辆管理系统</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			a{
+				text-decoration: none;
+			}
+			#header{
+				width: 100%;
+			}
+			#header .content{
+				height: 45px;
+				background-color: #222222;
+			}
+			#header .content .logo{
+				width: 220px;
+				height: 45px;
+				padding-left: 20px;
+				float: left;
+				overflow: hidden;
+				text-align: left;
+				line-height: 45px;
+			}
+			#header .content .logo a{
+				font-size: 18px;
+				color: #FFFFFF;
+			}
+			#header .content .left-open{
+				width: 32px;
+				height: 32px;
+				margin-top: 7px;
+				background: rgba(255,255,255,0.1);
+				float: left;
+			}
+			#header .content .list{
+				float: right;
+				padding: 0 20px;
+			}
+			#header .content .list>li{
+				height: 45px;
+				display: inline-block;
+				text-align: center;
+				line-height: 45px;
+				padding: 0 20px;
+				position: relative;
+				font-size: 12px;
+			}
+			#header .content .list>li>a{
+				color: #FFFFFF;
+			}
+			#header .content .list ul{
+				position: absolute;
+				left: 50%;
+				list-style: none;
+				display: none;
+			}
+			#gon,#news{
+				width: 240px;
+				margin-left: -120px;
+				border: 1px pink solid;
+				color: #c2c2c2;
+			}
+			#gon a,#news a{
+				color: #c2c2c2;
+			}
+			#gon>li,#news>li{
+				height: 44px;
+				padding: 0 10px;
+				border: 1px pink solid;
+				text-align: left;
+			}
+			#gon>li:first-child,#news>li:first-child{
+				background-color: #f7ecf2;
+				color:#b471a0;
+			}
+			#gon>li:last-child,#news>li:last-child{
+				text-align: center;
+			}
+			#gon>li:hover,#news>li:hover{
+				background-color: #f7ecf2;
+			}
+			#gonggao span,#new-nav span{
+				text-align: center;
+				background-color: #FF5722;
+				padding: 1px 6px;
+				border-radius: 2px;
+			}
+			#gonggao:hover #gon{
+				display: block;
+			}
+			#new-nav:hover #news{
+				display: block;
+			}
+			#adm{
+				/* top: 55px; */
+				min-width: 100%;
+				margin-left: -50%;
+				box-shadow: 0 2px 4px rgba(0,0,0,.32);
+			}
+			#adm li{
+				height: 40px;
+				padding: 0 10px;
+			}
+			#admin .ad-line,#shouye .ad-line{
+				position: absolute;
+				height: 5px;
+				width: 100%;
+				top: 40px;
+				left: 0;
+				background-color: aqua;
+				display: none;
+			}
+			#admin .sanjiaxing{
+				position: absolute;
+				top: 19px;
+				right: 2px;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 5.5px;
+				border-color: white transparent transparent transparent;
+			}
+			#admin:hover #adm{
+				display: block;
+			}
+			#admin:hover .sanjiaxing{
+				top: 15px;
+				border-color: transparent transparent  white transparent;
+			}
+			#admin:hover .ad-line{
+				display: block;
+			}
+			#adm li:hover{
+				background-color: #F5F5F5;
+			}
+			#shouye:hover #sho{
+				display: block;
+			}
+			#shouye:hover .ad-line{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 顶部开始 -->
+		<div id="header">
+			<div class="content">
+				<div class="logo">
+					<a href="#">车辆管理系统</a>
+				</div>
+				<div class="left-open">
+					<a href="#"><i title="展开左侧栏"></i></a>
+				</div>
+				<ul class="list">
+					<li id="gonggao">
+						<i></i>
+						<a href=""><i></i><span>4</span></a>
+						<ul id="gon">
+							<li><i></i>4条公告</li>
+							<li> 
+								<a href=""><i></i> 系统公告</a>
+							</li>
+							<li><a > <i></i> 商城公告 </a> </li>
+							<li><a>查看所有公告 <i></i> </a></li>
+						</ul>
+					</li>
+					<li id="new-nav">
+						<i></i>
+						<a href=""><i></i><span>9</span></a>
+						<ul id="news">
+							<li>2</li>
+							<li>3</li>
+							<li>1</li>
+							<li>2</li>
+							<li>2</li>
+							<li>1</li>
+						</ul>
+					</li>
+					<li id="admin">
+						 <a href="javascript:;">admin</a>
+						 <div class="sanjiaxing"></div>
+						 <div class="ad-line"></div>
+						 <ul id="adm">
+							<li>个人信息</li>
+							<li>切换账号</li>
+							<li>退出</li>
+						 </ul>
+					</li>
+					<li id="shouye">
+						 <a href="javascript:;">前台首页</a>
+						 <div class="ad-line"></div>
+						 <ul id="sho">
+							<li>2</li>
+							<li>3</li>
+							<li>1</li>
+							<li>2</li>
+							<li>2</li>
+							<li>1</li>
+						 </ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- 中部开始 -->
+		<div id="middle">
+			<div id="left-nav"></div>
+			<div id="page-content"></div>
+		</div>
+		<!-- 中部结束 -->
+		<div id="footer"></div>
+	</body>
+</html>
