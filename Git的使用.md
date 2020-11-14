@@ -32,23 +32,14 @@
 
 #### 5.本地仓库的基本命令
 
->1. 创建仓库`git init`
+>1. 创建仓库`git init`![](https://gitee.com/chen_zhilin2324/image/raw/master/img/image-20201108150902817.png)
 >
->![](https://gitee.com/chen_zhilin2324/image/raw/master/img/image-20201108150902817.png)
+>2. 查看仓库的状态`git status`![](https://gitee.com/chen_zhilin2324/image/raw/master/img/image-20201108151429018.png)
 >
->2. 查看仓库的状态`git status`
+>3. 将文件从工作区保存在暂存区中`git add filename `![](https://gitee.com/chen_zhilin2324/image/raw/master/img/image-20201108151833754.png)
 >
->   
+> 4. 提交文件形成正式版本`git commit -m "这里写提交的描述信息"`![](https://gitee.com/chen_zhilin2324/image/raw/master/img/image-20201108152232204.png)
 >
->  ![](https://gitee.com/chen_zhilin2324/image/raw/master/img/image-20201108151429018.png)
->
->3. 将文件从工作区保存在暂存区中`git add filename `
->
->  ![](https://gitee.com/chen_zhilin2324/image/raw/master/img/image-20201108151833754.png)
->
->4. 提交文件形成正式版本`git commit -m "这里写提交的描述信息"`
->
->  ![](https://gitee.com/chen_zhilin2324/image/raw/master/img/image-20201108152232204.png)
 
 #### 6.远程仓库
 
@@ -64,23 +55,43 @@
 
 ### 7.远程仓库的基本命令
 
->1. 关联远程仓库`git remote add repositoryName url `
+>1. 关联远程仓库`git remote add repositoryName url `![](https://gitee.com/chen_zhilin2324/image/raw/master/img/image-20201108155203030.png)
 >
->   ![](https://gitee.com/chen_zhilin2324/image/raw/master/img/image-20201108155203030.png)
+> 2. 查看关联的地址`git remote -v`![](https://gitee.com/chen_zhilin2324/image/raw/master/img/image-20201108155404834.png)
 >
->2. 查看关联的地址`git remote -v`
+>3. 将本地仓库提交到远程仓库`git push repositoryName branchesName `![](https://gitee.com/chen_zhilin2324/image/raw/master/img/image-20201108160408101.png)
 >
->   ![](https://gitee.com/chen_zhilin2324/image/raw/master/img/image-20201108155404834.png)
->
->3. 将本地仓库提交到远程仓库`git push repositoryName branchesName `
->
->   ![](https://gitee.com/chen_zhilin2324/image/raw/master/img/image-20201108160408101.png)
->
->4. 将远程仓库克隆到本地仓库`git clone url`
->
->   ![](https://gitee.com/chen_zhilin2324/image/raw/master/img/image-20201108160847442.png)
+> 4. 将远程仓库克隆到本地仓库`git clone url`![](https://gitee.com/chen_zhilin2324/image/raw/master/img/image-20201108160847442.png)
 >
 >5. 拉取远程仓库内容到本地`git pull repositoryName branchesName ` 
 >
 > ![](https://gitee.com/chen_zhilin2324/image/raw/master/img/image-20201108161647764.png)
+
+### 8.分支
+
+>1. 分子的简介：分支是一个个版本最终存储的位置；分支就是一条时间线，每次`git commit`形成一个个版本，一个个版本依次存储在分支的一个个提交点上。
+>
+>   <center><b>分支由多个提交点组成，分支上会有一个指针，默认总是指向最新的提交点</b></center>
+>
+>   ![](https://gitee.com/chen_zhilin2324/image/raw/master/img/20201114110334.png)
+>
+>2. 新分支初始化内容：每一个分支都有一个`指针`，新建一个分支，首先是新建一个`指针`；而且新分支的指针会和当前分支指向`同一提交点`；新分支包含的提交点就是从第一个提交点到分支指针指向的提交点。
+
+### 9.分支的基本命令
+
+>1. 查看分支`git branch`![](https://gitee.com/chen_zhilin2324/image/raw/master/img/20201114110950.png)
+>
+>2. 创建分支`git branch branchName`![](https://gitee.com/chen_zhilin2324/image/raw/master/img/20201114111215.png)
+>
+>3. 切换分支`git checkout branchName `
+>
+>   ![](https://gitee.com/chen_zhilin2324/image/raw/master/img/20201114111537.png)
+>
+>4. 查看分支日志:`git log --online`(简易日志)`git log`(完整日志)
+>
+>   ![](https://gitee.com/chen_zhilin2324/image/raw/master/img/20201114112745.png)
+>
+>5. 分支的合并`git merge branchName `
+>
+>   ![](https://gitee.com/chen_zhilin2324/image/raw/master/img/20201114113430.png)
 
